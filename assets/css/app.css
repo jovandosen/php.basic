@@ -1,0 +1,88 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+div#auth-navigation {
+	padding: 15px;
+	background-color: #999;
+}
+
+div#auth-navigation ul li {
+	display: inline-block;
+	margin-left: 20px;
+}
+
+div#auth-navigation ul li a {
+	color: white;
+	font-size: 20px;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+div#auth-register-container, div#auth-login-container {
+	width: 600px;
+	height: 600px;
+	margin-top: 50px;
+	margin-left: 50px;
+	border: 2px solid black;
+	box-shadow: 15px 15px 10px #999;
+	float: left;
+}
+
+div#name-container, div#email-container, div#password-container {
+	margin-left: 25px;
+	margin-top: 30px;
+	width: 550px;
+	height: 70px;
+	padding: 10px;
+	border: 1px solid black;
+}
+
+#name, #email {
+	width: 470px;
+	padding: 5px;
+}
+
+#password {
+	width: 434px;
+	padding: 5px;
+}
+
+div#name-container label, div#email-container label, div#password-container label {
+	font-size: 18px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+	outline: none;
+}
+
+div#image-container {
+	float: left;
+	margin-top: 50px;
+	margin-left: 200px;
+}
+
+div#image-container img {
+	width: 900px;
+	height: 600px;
+}
+
+div#register-button-container, div#login-button-container {
+	margin-left: 250px;
+	margin-top: 30px;
+}
+
+div#register-button-container button, div#login-button-container button {
+	padding: 10px 20px 10px 20px;
+	background-color: white;
+	border: 1px solid black;
+}
+
+div#register-button-container button:hover, div#login-button-container button:hover {
+	background-color: lightblue;
+	color: white;
+	transition: 0.3s;
+}
