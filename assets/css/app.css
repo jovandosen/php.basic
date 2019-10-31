@@ -86,3 +86,12 @@ div#register-button-container button:hover, div#login-button-container button:ho
 	color: white;
 	transition: 0.3s;
 }
+
+span#name-error-container, span#email-error-container, span#password-error-container {
+	color: red;
+	padding: 2px;
+}
+
+.error-wrapper {
+	border: 1px solid red;
+}
