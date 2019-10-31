@@ -3,7 +3,7 @@ $(document).ready(function(){
 	$("#register-button").on("click", function(){
 
 		validateRegistration();
-
+		
 	});
 
 });

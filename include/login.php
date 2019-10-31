@@ -22,13 +22,13 @@
 
 				<div id="email-container">
 					<label for="email">Email:</label>
-					<input type="text" name="email" id="email" autocomplete="off" />
+					<input type="text" name="email" id="email" autocomplete="off" placeholder="Enter email address..." />
 					<span id="email-error-container">test</span>
 				</div>
 
 				<div id="password-container">
 					<label for="password">Password:</label>
-					<input type="password" name="password" id="password" />
+					<input type="password" name="password" id="password" placeholder="Enter password..." />
 					<span id="password-error-container">test</span>
 				</div>
 

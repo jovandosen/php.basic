@@ -2,13 +2,22 @@
 	
 	if( isset($_POST['register-user']) ){
 
+		require 'Validator.php';
+
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
-		var_dump($name);
-		var_dump($email);
-		var_dump($password);
+		$validator = new Validator($name, $email, $password);
+
+		$nameError = $validator->validateName();
+		$emailError = $validator->validateEmail();
+		$passwordError = $validator->validatePassword();
+
+		if( $nameError == false && $emailError == false && $passwordError == false ){
+			// insert record
+			echo "Insert record logic";
+		}
  
 	}
 
@@ -37,20 +46,29 @@
 
 				<div id="name-container">
 					<label for="name">Name:</label>
-					<input type="text" name="name" id="name" autocomplete="off" />
-					<span id="name-error-container"></span>
+					<input type="text" name="name" id="name" autocomplete="off" minlength="3" maxlength="15" placeholder="Enter name..." 
+						class="<?php echo (isset($nameError) && !empty($nameError)) ? 'error-wrapper' : ''; ?>" />
+					<span id="name-error-container">
+						<?php echo (isset($nameError) && !empty($nameError)) ? $nameError : ''; ?>
+					</span>
 				</div>
 
 				<div id="email-container">
 					<label for="email">Email:</label>
-					<input type="text" name="email" id="email" autocomplete="off" />
-					<span id="email-error-container"></span>
+					<input type="text" name="email" id="email" autocomplete="off" placeholder="Enter email address..." 
+						class="<?php echo (isset($emailError) && !empty($emailError)) ? 'error-wrapper' : ''; ?>" />
+					<span id="email-error-container">
+						<?php echo (isset($emailError) && !empty($emailError)) ? $emailError : ''; ?>
+					</span>
 				</div>
 
 				<div id="password-container">
 					<label for="password">Password:</label>
-					<input type="password" name="password" id="password" />
-					<span id="password-error-container"></span>
+					<input type="password" name="password" id="password" minlength="3" maxlength="15" placeholder="Enter password..." 
+						class="<?php echo (isset($passwordError) && !empty($passwordError)) ? 'error-wrapper' : ''; ?>" />
+					<span id="password-error-container">
+						<?php echo (isset($passwordError) && !empty($passwordError)) ? $passwordError : ''; ?>	
+					</span>
 				</div>
 
 				<div id="register-button-container">
