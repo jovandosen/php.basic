@@ -1,8 +1,11 @@
 <?php
+
+	session_start();
 	
 	if( isset($_POST['register-user']) ){
 
 		require 'Validator.php';
+		require 'Record.php';
 
 		$name = $_POST['name'];
 		$email = $_POST['email'];
@@ -15,8 +18,13 @@
 		$passwordError = $validator->validatePassword();
 
 		if( $nameError == false && $emailError == false && $passwordError == false ){
-			// insert record
-			echo "Insert record logic";
+			
+			$newRecord = new Record($name, $email, $password);
+
+			$newRecord->connect();
+
+			$newRecord->insert();
+
 		}
  
 	}
