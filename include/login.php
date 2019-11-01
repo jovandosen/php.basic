@@ -1,3 +1,39 @@
+<?php
+
+	session_start();
+
+	if( isset($_POST['login-user']) ){
+
+		require 'LoginValidator.php';
+		require 'CheckRecord.php';
+
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+
+		$validator = new LoginValidator($email, $password);
+
+		$emailError = $validator->validateEmail();
+		$passwordError = $validator->validatePassword();
+
+		if( $emailError == false && $passwordError == false ){
+
+			$checkRecord = new CheckRecord($email, $password);
+			$checkRecord->connect();
+			$data = $checkRecord->checkLoginData();
+
+			if($data[0] == 'email'){
+				$emailError = $data[1];
+			}
+
+			if($data[0] == 'password'){
+				$passwordError = $data[1];
+			}
+
+		}
+
+	}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -22,19 +58,27 @@
 
 				<div id="email-container">
 					<label for="email">Email:</label>
-					<input type="text" name="email" id="email" autocomplete="off" placeholder="Enter email address..." />
-					<span id="email-error-container">test</span>
+					<input type="text" name="email" id="email" autocomplete="off" placeholder="Enter email address..." 
+						class="<?php echo (isset($emailError) && !empty($emailError)) ? 'error-wrapper' : ''; ?>" />
+					<span id="email-error-container">
+						<?php echo (isset($emailError) && !empty($emailError)) ? $emailError : ''; ?>
+					</span>
 				</div>
 
 				<div id="password-container">
 					<label for="password">Password:</label>
-					<input type="password" name="password" id="password" placeholder="Enter password..." />
-					<span id="password-error-container">test</span>
+					<input type="password" name="password" id="password" minlength="3" maxlength="15" placeholder="Enter password..." 
+						class="<?php echo (isset($passwordError) && !empty($passwordError)) ? 'error-wrapper' : ''; ?>" />
+					<span id="password-error-container">
+						<?php echo (isset($passwordError) && !empty($passwordError)) ? $passwordError : ''; ?>
+					</span>
 				</div>
 
 				<div id="login-button-container">
 					<button type="button" id="login-button">LOGIN</button>
 				</div>
+
+				<input type="hidden" name="login-user" value="login-user" />
 
 			</form>
 		</div>

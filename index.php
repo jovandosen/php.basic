@@ -1,4 +1,15 @@
-<?php session_start(); ?>
+<?php 
+
+	session_start(); 
+
+	if( isset($_SESSION['name']) && !empty($_SESSION['name']) && isset($_SESSION['email']) && !empty($_SESSION['email']) ){
+		$userName = $_SESSION['name'];
+		$userEmail = $_SESSION['email'];
+	} else {
+		header('Location: /include/login.php');
+	}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -10,18 +21,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	</head>
 	<body>
-
-		<?php
-
-			if( isset($_SESSION['name']) && !empty($_SESSION['name']) ){
-				$userName = $_SESSION['name'];
-			}
-
-			if( isset($_SESSION['email']) && !empty($_SESSION['email']) ){
-				$userEmail = $_SESSION['email'];
-			}
-
-		?>
 
 		<div id="homepage-navigation">
 			<ul>
@@ -35,7 +34,7 @@
 					<ul id="user-info-details" style="display: none;">
 						<li><a href="#">Profile</a></li>
 						<li><a href="#">Settings</a></li>
-						<li><a href="#">Logout</a></li>
+						<li><a href="/include/logout.php">Logout</a></li>
 					</ul>
 				</li>
 			</ul>

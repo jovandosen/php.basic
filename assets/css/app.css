@@ -21,6 +21,11 @@ div#auth-navigation ul li a {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+div#auth-navigation ul li a:hover {
+	color: lightblue;
+	transition: 0.2s;
+}
+
 div#auth-register-container, div#auth-login-container {
 	width: 600px;
 	height: 600px;
@@ -111,6 +116,11 @@ div#homepage-navigation ul li a {
 	color: white;
 	font-size: 18px;
 	font-family: Arial, Helvetica, sans-serif;
+}
+
+div#homepage-navigation ul li a:hover {
+	color: lightblue;
+	opacity: 0.2s;
 }
 
 #user-info {
