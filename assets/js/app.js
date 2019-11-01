@@ -16,6 +16,8 @@ $(document).ready(function(){
 		$("#user-info-details").css({"display":"none"});
 	});
 
+	checkFlashMessage();
+
 });
 
 function validateRegistration()
@@ -169,6 +171,22 @@ function validateLogin()
 
 	if( error === false ){
 		$("#login-form").submit();
+	}
+
+}
+
+function checkFlashMessage()
+{
+	var flashMessage = $("#user-flash-message p").text();
+
+	if( flashMessage != '' ){
+
+		$("#user-flash-message").css({"display":"block"});
+
+		setTimeout(function(){
+			$("#user-flash-message").css({"display":"none"});
+		}, 5000);
+
 	}
 
 }

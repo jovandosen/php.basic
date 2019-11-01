@@ -40,6 +40,8 @@ class Record
 		$this->connection->close();
 		$_SESSION['name'] = $this->name;
 		$_SESSION['email'] = $this->email;
+		$_SESSION['message'] = 'You have successfully registered.';
+		mail($this->email, 'WELCOME', 'You have successfully registered.');
 		header('Location: /index.php');
 	}
 }
