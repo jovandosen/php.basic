@@ -6,6 +6,14 @@ $(document).ready(function(){
 		
 	});
 
+	$("#user-info, #user-info-details").mouseover(function(){
+		$("#user-info-details").css({"display":"block"});
+	});
+
+	$("#user-info, #user-info-details").mouseout(function(){
+		$("#user-info-details").css({"display":"none"});
+	});
+
 });
 
 function validateRegistration()

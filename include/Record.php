@@ -17,7 +17,7 @@ class Record
 	{
 		$this->name = $name;
 		$this->email = $email;
-		$this->password = $password;
+		$this->password = password_hash($password, PASSWORD_DEFAULT);
 	}
 
 	public function connect()
@@ -31,12 +31,16 @@ class Record
 
 	public function insert()
 	{
-		$sql = "INSERT INTO users(name, email, password) VALUES(?, ?, ?)";
+		$sql = "INSERT INTO users(name, email, password, created) VALUES(?, ?, ?, ?)";
 		$connect = $this->connection->prepare($sql);
-		$connect->bind_param("sss", $this->name, $this->email, $this->password);
+		$currentDateTime = date('Y-m-d H:i:s');
+		$connect->bind_param("ssss", $this->name, $this->email, $this->password, $currentDateTime);
 		$connect->execute();
 		$connect->close();
 		$this->connection->close();
+		$_SESSION['name'] = $this->name;
+		$_SESSION['email'] = $this->email;
+		header('Location: /index.php');
 	}
 }
 

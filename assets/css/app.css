@@ -95,3 +95,37 @@ span#name-error-container, span#email-error-container, span#password-error-conta
 .error-wrapper {
 	border: 1px solid red;
 }
+
+div#homepage-navigation {
+	background-color: #999;
+}
+
+div#homepage-navigation ul li {
+	display: inline-block;
+	margin-left: 30px;
+	padding: 10px;
+}
+
+div#homepage-navigation ul li a {
+	text-decoration: none;
+	color: white;
+	font-size: 18px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#user-info {
+	margin-left: 1300px !important;
+	position: relative;
+}
+
+#user-info-details {
+	position: absolute;
+	background-color: #999;
+	top: 41px;
+	left: -28px;
+	width: 138px;
+}
+
+#user-info-details li {
+	padding: 6px;
+}
