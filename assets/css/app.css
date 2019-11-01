@@ -139,3 +139,27 @@ div#homepage-navigation ul li a:hover {
 #user-info-details li {
 	padding: 6px;
 }
+
+div#login-link-container {
+	margin-left: 288px;
+	margin-top: 10px;
+}
+
+div#login-link-container a, div#register-link-container a, div#forgot-password-link-container a {
+	color: blue;
+	text-decoration: none;
+}
+
+div#login-link-container a:hover, div#register-link-container a:hover, div#forgot-password-link-container:hover {
+	text-decoration: underline;
+}
+
+div#register-link-container {
+	margin-left: 267px;
+	margin-top: 10px;
+}
+
+div#forgot-password-link-container {
+	margin-left: 240px;
+	margin-top: 10px;
+}

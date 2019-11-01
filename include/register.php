@@ -83,6 +83,10 @@
 					<button type="button" id="register-button">REGISTER</button>
 				</div>
 
+				<div id="login-link-container">
+					<a href="login.php">Login</a>
+				</div>
+
 				<input type="hidden" name="register-user" value="register-user" />
 
 			</form>

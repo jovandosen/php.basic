@@ -78,6 +78,14 @@
 					<button type="button" id="login-button">LOGIN</button>
 				</div>
 
+				<div id="register-link-container">
+					<a href="register.php">Register</a>
+				</div>
+
+				<div id="forgot-password-link-container">
+					<a href="#">Forgot password?</a>
+				</div>
+
 				<input type="hidden" name="login-user" value="login-user" />
 
 			</form>
