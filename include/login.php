@@ -60,7 +60,8 @@
 						<label for="email">Email:</label>
 					</div>
 					<input type="text" name="email" id="email" autocomplete="off" placeholder="Enter email address..." 
-						class="<?php echo (isset($emailError) && !empty($emailError)) ? 'error-wrapper' : ''; ?>" />
+						class="<?php echo (isset($emailError) && !empty($emailError)) ? 'error-wrapper' : ''; ?>" 
+						value="<?php echo (isset($email) && !empty($email)) ? $email : ''; ?>" />
 					<span id="email-error-container">
 						<?php echo (isset($emailError) && !empty($emailError)) ? $emailError : ''; ?>
 					</span>

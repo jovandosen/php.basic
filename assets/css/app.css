@@ -160,11 +160,12 @@ div#forgot-password-link-container {
 }
 
 div#user-flash-message {
-	border: 2px solid black;
+	border: 1px solid black;
 	width: 300px;
 	height: 40px;
 	padding: 10px;
 	margin-left: 800px;
 	margin-top: 20px;
 	text-align: center;
+	background-color: #7FFFD4;
 }
