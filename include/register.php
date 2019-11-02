@@ -5,7 +5,7 @@
 	if( isset($_POST['register-user']) ){
 
 		require 'validation/ValidateRegistration.php';
-		require 'Record.php';
+		require 'database/User.php';
 
 		$name = $_POST['name'];
 		$email = $_POST['email'];
@@ -18,9 +18,8 @@
 		$passwordError = $validReg->validatePassword();
 
 		if( $nameError == false && $emailError == false && $passwordError == false ){
-			$newRecord = new Record($name, $email, $password);
-			$newRecord->connect();
-			$newRecord->insert();
+			$user = new User();
+			$user->create($name, $email, $password);
 		}
  
 	}

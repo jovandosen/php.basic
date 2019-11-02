@@ -5,7 +5,7 @@
 	if( isset($_POST['login-user']) ){
 
 		require 'validation/ValidateLogin.php';
-		require 'CheckRecord.php';
+		require 'database/User.php';
 
 		$email = $_POST['email'];
 		$password = $_POST['password'];
@@ -17,9 +17,8 @@
 
 		if( $emailError == false && $passwordError == false ){
 
-			$checkRecord = new CheckRecord($email, $password);
-			$checkRecord->connect();
-			$data = $checkRecord->checkLoginData();
+			$user = new User();
+			$data = $user->login($email, $password);
 
 			if($data[0] == 'email'){
 				$emailError = $data[1];
