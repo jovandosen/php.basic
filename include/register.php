@@ -4,27 +4,23 @@
 	
 	if( isset($_POST['register-user']) ){
 
-		require 'Validator.php';
+		require 'validation/ValidateRegistration.php';
 		require 'Record.php';
 
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
-		$validator = new Validator($name, $email, $password);
+		$validReg = new ValidateRegistration($name, $email, $password);
 
-		$nameError = $validator->validateName();
-		$emailError = $validator->validateEmail();
-		$passwordError = $validator->validatePassword();
+		$nameError = $validReg->validateName();
+		$emailError = $validReg->validateEmail();
+		$passwordError = $validReg->validatePassword();
 
 		if( $nameError == false && $emailError == false && $passwordError == false ){
-			
 			$newRecord = new Record($name, $email, $password);
-
 			$newRecord->connect();
-
 			$newRecord->insert();
-
 		}
  
 	}

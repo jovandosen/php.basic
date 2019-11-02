@@ -4,16 +4,16 @@
 
 	if( isset($_POST['login-user']) ){
 
-		require 'LoginValidator.php';
+		require 'validation/ValidateLogin.php';
 		require 'CheckRecord.php';
 
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
-		$validator = new LoginValidator($email, $password);
+		$validLogin = new ValidateLogin($email, $password);
 
-		$emailError = $validator->validateEmail();
-		$passwordError = $validator->validatePassword();
+		$emailError = $validLogin->validateEmail();
+		$passwordError = $validLogin->validatePassword();
 
 		if( $emailError == false && $passwordError == false ){
 
