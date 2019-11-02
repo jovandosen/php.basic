@@ -2,10 +2,12 @@
 
 	session_start();
 
-	if( isset($_POST['login-user']) ){
+	require __DIR__ . '/../vendor/autoload.php';
 
-		require 'validation/ValidateLogin.php';
-		require 'database/User.php';
+	use App\validation\ValidateLogin;
+	use App\database\User;
+
+	if( isset($_POST['login-user']) ){
 
 		$email = $_POST['email'];
 		$password = $_POST['password'];

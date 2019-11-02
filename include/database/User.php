@@ -1,6 +1,8 @@
 <?php
 
-require 'Connection.php';
+namespace App\database;
+
+use App\database\Connection;
 
 class User extends Connection
 {

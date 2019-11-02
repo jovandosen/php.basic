@@ -1,11 +1,13 @@
 <?php
 
 	session_start();
+
+	require __DIR__ . '/../vendor/autoload.php';
+
+	use App\validation\ValidateRegistration;
+	use App\database\User;
 	
 	if( isset($_POST['register-user']) ){
-
-		require 'validation/ValidateRegistration.php';
-		require 'database/User.php';
 
 		$name = $_POST['name'];
 		$email = $_POST['email'];
