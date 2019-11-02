@@ -96,6 +96,6 @@
 			<img src="/../assets/images/image.jpg" />
 		</div>
 
-		<script src="/../assets/js/app.js"></script>
+		<script src="/../assets/js/register.js"></script>
 	</body>
 </html>
