@@ -40,18 +40,13 @@ div#name-container, div#email-container, div#password-container {
 	margin-left: 25px;
 	margin-top: 30px;
 	width: 550px;
-	height: 70px;
+	height: 85px;
 	padding: 10px;
 	border: 1px solid black;
 }
 
-#name, #email {
-	width: 470px;
-	padding: 5px;
-}
-
-#password {
-	width: 434px;
+#name, #email, #password {
+	width: 525px;
 	padding: 5px;
 }
 
@@ -141,7 +136,7 @@ div#homepage-navigation ul li a:hover {
 }
 
 div#login-link-container {
-	margin-left: 288px;
+	margin-left: 286px;
 	margin-top: 10px;
 }
 

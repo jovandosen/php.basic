@@ -48,7 +48,9 @@
 			<form method="post" action="register.php" id="register-form">
 
 				<div id="name-container">
-					<label for="name">Name:</label>
+					<div>
+						<label for="name">Name:</label>
+					</div>
 					<input type="text" name="name" id="name" autocomplete="off" minlength="3" maxlength="15" placeholder="Enter name..." 
 						class="<?php echo (isset($nameError) && !empty($nameError)) ? 'error-wrapper' : ''; ?>" />
 					<span id="name-error-container">
@@ -57,7 +59,9 @@
 				</div>
 
 				<div id="email-container">
-					<label for="email">Email:</label>
+					<div>
+						<label for="email">Email:</label>
+					</div>
 					<input type="text" name="email" id="email" autocomplete="off" placeholder="Enter email address..." 
 						class="<?php echo (isset($emailError) && !empty($emailError)) ? 'error-wrapper' : ''; ?>" />
 					<span id="email-error-container">
@@ -66,7 +70,9 @@
 				</div>
 
 				<div id="password-container">
-					<label for="password">Password:</label>
+					<div>
+						<label for="password">Password:</label>
+					</div>
 					<input type="password" name="password" id="password" minlength="3" maxlength="15" placeholder="Enter password..." 
 						class="<?php echo (isset($passwordError) && !empty($passwordError)) ? 'error-wrapper' : ''; ?>" />
 					<span id="password-error-container">
