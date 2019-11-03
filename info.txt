@@ -1,2 +1,3 @@
 1. Add htmlspecialchars function logic to register and login pages ( data output => to prevent XSS attacks )
 2. C:\xampp\php\logs\php_error_log   ( location of log file )
+3. PHPMailer requires less secure apps option to be turn ON in google gmail account settings
