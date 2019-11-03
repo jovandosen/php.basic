@@ -71,7 +71,7 @@ div#image-container img {
 }
 
 div#register-button-container, div#login-button-container {
-	margin-left: 250px;
+	margin-left: 25px;
 	margin-top: 30px;
 }
 
@@ -79,6 +79,7 @@ div#register-button-container button, div#login-button-container button {
 	padding: 10px 20px 10px 20px;
 	background-color: white;
 	border: 1px solid black;
+	width: 550px;
 }
 
 div#register-button-container button:hover, div#login-button-container button:hover {
@@ -136,7 +137,7 @@ div#homepage-navigation ul li a:hover {
 }
 
 div#login-link-container {
-	margin-left: 286px;
+	margin-left: 281px;
 	margin-top: 10px;
 }
 
@@ -150,12 +151,12 @@ div#login-link-container a:hover, div#register-link-container a:hover, div#forgo
 }
 
 div#register-link-container {
-	margin-left: 267px;
+	margin-left: 274px;
 	margin-top: 10px;
 }
 
 div#forgot-password-link-container {
-	margin-left: 240px;
+	margin-left: 245px;
 	margin-top: 10px;
 }
 
@@ -168,4 +169,12 @@ div#user-flash-message {
 	margin-top: 20px;
 	text-align: center;
 	background-color: #7FFFD4;
+}
+
+div#container-for-password-label-register, div#container-for-password-label-login {
+	float: left;
+}
+
+div#show-password-container-register, div#show-password-container-login {
+	margin-left: 409px;
 }

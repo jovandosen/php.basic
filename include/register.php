@@ -83,8 +83,11 @@
 				</div>
 
 				<div id="password-container">
-					<div>
+					<div id="container-for-password-label-register">
 						<label for="password">Password:</label>
+					</div>
+					<div id="show-password-container-register">
+						<input type="checkbox" name="show-password-register" id="show-password-register" />Show Password
 					</div>
 					<input type="password" name="password" id="password" minlength="3" maxlength="15" placeholder="Enter password..." 
 						class="<?php echo (isset($passwordError) && !empty($passwordError)) ? 'error-wrapper' : ''; ?>" />

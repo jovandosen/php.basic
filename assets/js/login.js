@@ -4,6 +4,10 @@ $(document).ready(function(){
 		validateLogin();
 	});
 
+	$("#show-password-login").on("click", function(){
+		showLoginPassword();
+	});
+
 });
 
 function validateLogin()
@@ -72,4 +76,15 @@ function validateEmail(email)
 {
 	var regularEx = /\S+@\S+\.\S+/;
 	return regularEx.test(email);
+}
+
+function showLoginPassword()
+{
+	var element = document.getElementById("password");
+
+	if( element.type === "password" ){
+		element.type = "text";
+	} else {
+		element.type = "password";
+	}
 }

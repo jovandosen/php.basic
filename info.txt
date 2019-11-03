@@ -2,4 +2,5 @@
 2. C:\xampp\php\logs\php_error_log   ( location of log file )
 3. PHPMailer requires less secure apps option to be turn ON in google gmail account settings
 4. Add loggedin property to users table
-5. Add hide/show password on register and login page
+5. Add hide/show password on register and login page [ DONE ]
+6. Add forgot password logic to project ( login page )

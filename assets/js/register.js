@@ -4,6 +4,10 @@ $(document).ready(function(){
 		validateRegistration();
 	});
 
+	$("#show-password-register").on("click", function(){
+		showRegisterPassword();
+	});
+
 	getEmails();
 
 });
@@ -127,4 +131,15 @@ function getEmails()
 			console.log('Error');
 		}
 	});
+}
+
+function showRegisterPassword()
+{
+	var element = document.getElementById("password");
+
+	if( element.type === "password" ){
+		element.type = "text";
+	} else {
+		element.type = "password";
+	}
 }
