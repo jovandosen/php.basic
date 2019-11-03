@@ -4,6 +4,8 @@ $(document).ready(function(){
 		validateRegistration();
 	});
 
+	getEmails();
+
 });
 
 function validateRegistration()
@@ -11,6 +13,7 @@ function validateRegistration()
 	var name = $("#name").val();
 	var email = $("#email").val();
 	var password = $("#password").val();
+	var allEmails = $("#all-emails").val();
 
 	var nameError = '';
 	var emailError = '';
@@ -58,6 +61,18 @@ function validateRegistration()
 		}
 	}
 
+	// check if email exists
+	allEmails = allEmails.split(",");
+	
+	for( var i = 0; i < allEmails.length; i++ ){
+		if( email == allEmails[i] ){
+			error = true;
+			emailError = 'Email already exists.';
+			$("#email-error-container").text(emailError);
+			$("#email").addClass('error-wrapper');
+		}
+	}
+
 	if( emailError == '' ){
 		$("#email-error-container").text('');
 		if( $("#email").hasClass("error-wrapper") ){
@@ -97,4 +112,19 @@ function validateEmail(email)
 {
 	var regularEx = /\S+@\S+\.\S+/;
 	return regularEx.test(email);
+}
+
+function getEmails()
+{
+	$.ajax({
+		url: "External.php",
+		method: "POST",
+		success: function(response){
+			var emails = JSON.parse(response);
+			$("#all-emails").val(emails);
+		},
+		error: function(){
+			console.log('Error');
+		}
+	});
 }
