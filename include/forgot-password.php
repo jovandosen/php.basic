@@ -106,5 +106,6 @@
 		</div>
 
 		<script src="/../assets/js/forgot-password.js"></script>
+		<script src="/../assets/js/slider.js"></script>
 	</body>
 </html>
