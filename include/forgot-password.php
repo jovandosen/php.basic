@@ -102,7 +102,7 @@
 		</div>
 
 		<div id="image-container">
-			<img src="/../assets/images/image.jpg" />
+			<img src="" />
 		</div>
 
 		<script src="/../assets/js/forgot-password.js"></script>
