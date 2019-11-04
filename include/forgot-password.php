@@ -35,7 +35,15 @@
 		}
 
 		if( $emailError === false && $emailCount === 1 ){
-			echo 'all good';
+			
+			$user = new User();
+
+			$id = $user->findUserByEmail($email);
+
+			$userData = $user->findUserById($id);
+
+			$user->sendForgotPasswordMail($userData->name, $userData->email);
+
 		}
 
 	}

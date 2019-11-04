@@ -4,6 +4,7 @@ namespace App\database;
 
 use App\database\Connection;
 use App\mail\SendWelcomeMail;
+use App\mail\ForgotPasswordMail;
 
 class User extends Connection
 {
@@ -122,6 +123,34 @@ class User extends Connection
 		}
 
 		return $id;
+	}
+
+	public function findUserById($id)
+	{
+		$sql = "SELECT * FROM users WHERE userID=?";
+
+		$record = $this->connect->prepare($sql);
+
+		$record->bind_param("i", $id);
+
+		$record->execute();
+
+		$details = $record->get_result();
+
+		$user = '';
+
+		if( $details->num_rows === 1 ){
+			while( $row = mysqli_fetch_object($details) ){
+				$user = $row;
+			}
+		}
+
+		return $user;
+	}
+
+	public function sendForgotPasswordMail($name, $email)
+	{
+		$forgotPasswordMail = new ForgotPasswordMail($name, $email);
 	}
 }
 
