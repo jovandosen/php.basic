@@ -92,7 +92,7 @@
 				</div>
 
 				<div id="forgot-password-link-container">
-					<a href="#">Forgot password?</a>
+					<a href="forgot-password.php">Forgot password?</a>
 				</div>
 
 				<input type="hidden" name="login-user" value="login-user" />
