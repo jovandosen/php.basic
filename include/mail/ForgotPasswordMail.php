@@ -2,6 +2,8 @@
 
 namespace App\mail;
 
+session_start();
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -32,13 +34,18 @@ class ForgotPasswordMail
 		    $mail->setFrom('jovandosen994@gmail.com', 'Jovan Dosen');
     		$mail->addAddress($this->email, $this->name);
 
+    		$_SESSION['name'] = $this->name;
+    		$_SESSION['email'] = $this->email;
+
     		$mail->isHTML(true);                                         // Set email format to HTML
     		$mail->Subject = 'Forgot Password';
-    		$mail->Body = "Forgot Password body text.";
+    		$mail->Body = "Forgot Password body text. Click on <a href='http://php.basic/index.php'>login</a> to login";
 
     		$result = $mail->send();
 
-    		echo 'Mail successfully sent.';
+    		$_SESSION['mail'] = 'success';
+
+    		header("Refresh:0");
 
 		} catch (Exception $e){
 			echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

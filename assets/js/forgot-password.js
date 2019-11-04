@@ -6,6 +6,8 @@ $(document).ready(function(){
 
 	getEmails();
 
+	checkFlashMessage();
+
 });
 
 function validateEmailAddress()
@@ -87,4 +89,18 @@ function getEmails()
 			console.log('Error');
 		}
 	});
+}
+
+function checkFlashMessage()
+{
+	var flashMessage = $("#mail-sent-container p").text();
+
+	if( flashMessage != '' ){
+
+		setTimeout(function(){
+			$("#mail-sent-container").css({"display":"none"});
+		}, 5000);
+
+	}
+
 }

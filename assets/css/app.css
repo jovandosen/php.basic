@@ -188,3 +188,9 @@ div#forgot-password-form-container {
 	box-shadow: 15px 15px 10px #999;
 	float: left;
 }
+
+div#mail-sent-container {
+	margin-top: 45px;
+	color: green;
+	font-size: 20px;
+}

@@ -92,6 +92,13 @@
 				<input type="hidden" name="all-emails" value="" id="all-emails" />
 
 			</form>
+
+			<?php if( isset($_SESSION['mail']) && !empty($_SESSION['mail']) ): ?>
+				<div id="mail-sent-container">
+					<p><?php echo 'Mail sent successfully.'; ?></p>
+				</div>
+			<?php endif; ?>
+
 		</div>
 
 		<div id="image-container">
