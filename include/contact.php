@@ -99,6 +99,13 @@
 
 		<div id="image-container">
 			<img src="" />
+			<div id="previous-button-container">
+				<button id="previous">&#8249;</button>
+			</div>
+			<div id="next-button-container">
+				<button id="next">&#8250;</button>
+			</div>
+			<input type="hidden" name="current-slider-image" id="current-slider-image" value="0" />
 		</div>
 
 		<script src="/../assets/js/contact.js"></script>

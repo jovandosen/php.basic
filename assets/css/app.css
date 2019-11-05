@@ -79,11 +79,29 @@ div#image-container {
 	float: left;
 	margin-top: 50px;
 	margin-left: 200px;
+	position: relative;
 }
 
 div#image-container img {
 	width: 900px;
 	height: 600px;
+}
+
+div#previous-button-container {
+	position: absolute;
+	top: 300px;
+	left: 30px;
+}
+
+div#previous-button-container button, div#next-button-container button {
+	padding: 5px 12px;
+	font-size: 30px;
+}
+
+div#next-button-container {
+	position: absolute;
+	top: 300px;
+	left: 830px;
 }
 
 div#register-button-container, div#login-button-container, div#forgot-password-button-container, div#contact-button-container {
