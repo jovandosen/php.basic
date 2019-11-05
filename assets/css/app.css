@@ -58,6 +58,7 @@ div#message-container textarea {
 	width: 525px;
 	height: 140px;
 	padding: 5px;
+	resize: none;
 }
 
 #name, #email, #password {

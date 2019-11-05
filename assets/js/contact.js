@@ -1,7 +1,8 @@
 $(document).ready(function(){
 	
 	$("#contact-button").on("click", function(){
-		validateContactForm();
+		//validateContactForm();
+		$("#contact-form").submit();
 	});
 
 });
@@ -77,6 +78,10 @@ function validateContactForm()
 		if( $("#message").hasClass('error-wrapper') ){
 			$("#message").removeClass('error-wrapper');
 		}
+	}
+
+	if( error === false ){
+		$("#contact-form").submit();
 	}
 
 }

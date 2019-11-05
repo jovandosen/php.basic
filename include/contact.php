@@ -1,3 +1,28 @@
+<?php
+
+	require __DIR__ . '/../vendor/autoload.php';
+
+	use App\validation\ValidateContactForm;
+
+	if( isset($_POST['contact-hidden-data']) && !empty($_POST['contact-hidden-data']) ){
+
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+		$message = $_POST['message'];
+
+		$validContactFormData = new ValidateContactForm($name, $email, $message);
+
+		$nameError = $validContactFormData->validateName();
+		$emailError = $validContactFormData->validateEmail();
+		$messageError = $validContactFormData->validateMessage();
+
+		if( $nameError == false && $emailError == false && $messageError == false ){
+			echo "ALL GOOD";
+		}
+
+	}
+
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -43,8 +68,13 @@
 					<div>
 						<label for="message">Message:</label>
 					</div>
-					<textarea name="message" id="message" autocomplete="off" placeholder="Enter your message..."></textarea>
-					<span id="message-error-container"></span>
+					<textarea name="message" id="message" autocomplete="off" placeholder="Enter your message..." 
+						class="<?php echo (isset($messageError) && !empty($messageError)) ? 'error-wrapper' : ''; ?>">
+						<?php echo (isset($message) && !empty($message)) ? $message : ''; ?>		
+					</textarea>
+					<span id="message-error-container">
+						<?php echo (isset($messageError) && !empty($messageError)) ? $messageError : ''; ?>
+					</span>
 				</div>
 
 				<div id="contact-button-container">
