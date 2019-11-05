@@ -103,7 +103,7 @@ div#register-button-container button:hover, div#login-button-container button:ho
 	transition: 0.3s;
 }
 
-span#name-error-container, span#email-error-container, span#password-error-container {
+span#name-error-container, span#email-error-container, span#password-error-container, span#message-error-container {
 	color: red;
 	padding: 2px;
 }

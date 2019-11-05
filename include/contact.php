@@ -19,16 +19,24 @@
 					<div>
 						<label for="name">Name:</label>
 					</div>
-					<input type="text" name="name" id="name" autocomplete="off" minlength="3" maxlength="15" placeholder="Enter name..." />
-					<span id="name-error-container"></span>
+					<input type="text" name="name" id="name" autocomplete="off" minlength="3" maxlength="15" placeholder="Enter name..." 
+						class="<?php echo (isset($nameError) && !empty($nameError)) ? 'error-wrapper' : ''; ?>" 
+						value="<?php echo (isset($name) && !empty($name)) ? $name : ''; ?>" />
+					<span id="name-error-container">
+						<?php echo (isset($nameError) && !empty($nameError)) ? $nameError : ''; ?>
+					</span>
 				</div>
 
 				<div id="email-container">
 					<div>
 						<label for="email">Email:</label>
 					</div>
-					<input type="text" name="email" id="email" autocomplete="off" placeholder="Enter email address..." />
-					<span id="email-error-container"></span>
+					<input type="text" name="email" id="email" autocomplete="off" placeholder="Enter email address..." 
+						class="<?php echo (isset($emailError) && !empty($emailError)) ? 'error-wrapper' : ''; ?>" 
+						value="<?php echo (isset($email) && !empty($email)) ? $email : ''; ?>" />
+					<span id="email-error-container">
+						<?php echo (isset($emailError) && !empty($emailError)) ? $emailError : ''; ?>
+					</span>
 				</div>
 
 				<div id="message-container">
