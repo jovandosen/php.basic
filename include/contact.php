@@ -1,8 +1,11 @@
 <?php
 
+	session_start();
+
 	require __DIR__ . '/../vendor/autoload.php';
 
 	use App\validation\ValidateContactForm;
+	use App\database\ContactModel;
 
 	if( isset($_POST['contact-hidden-data']) && !empty($_POST['contact-hidden-data']) ){
 
@@ -17,7 +20,8 @@
 		$messageError = $validContactFormData->validateMessage();
 
 		if( $nameError == false && $emailError == false && $messageError == false ){
-			echo "ALL GOOD";
+			$contact = new ContactModel();
+			$contact->create($name, $email, $message);
 		}
 
 	}
@@ -82,6 +86,13 @@
 				</div>
 
 				<input type="hidden" name="contact-hidden-data" value="contact-hidden-data" />
+
+				<?php if( isset($_SESSION['info']) && !empty($_SESSION['info']) ): ?>
+					<input type="hidden" name="information" value="<?php echo $_SESSION['info']; ?>" id="info-message" />
+					<?php session_unset($_SESSION['info']); ?>
+				<?php else: ?>
+					<input type="hidden" name="information" value="empty" id="info-message" />	
+				<?php endif; ?>
 
 			</form>
 		</div>

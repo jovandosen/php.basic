@@ -1,9 +1,10 @@
 $(document).ready(function(){
 	
 	$("#contact-button").on("click", function(){
-		//validateContactForm();
-		$("#contact-form").submit();
+		validateContactForm();
 	});
+
+	checkInfoMessage();
 
 });
 
@@ -90,4 +91,16 @@ function validateEmail(email)
 {
 	var regularEx = /\S+@\S+\.\S+/;
 	return regularEx.test(email);
+}
+
+function checkInfoMessage()
+{
+	var infoMessage = $("#info-message").val();
+
+	if( infoMessage != "empty" ){
+		$("#name").val('');
+		$("#email").val('');
+		$("#message").val('');
+		alert(infoMessage);
+	}
 }
