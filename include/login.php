@@ -47,12 +47,7 @@
 	</head>
 	<body>
 
-		<div id="auth-navigation">
-			<ul>
-				<li><a href="register.php">Register</a></li>
-				<li><a href="login.php">Login</a></li>
-			</ul>
-		</div>
+		<?php require('navigation.php'); ?>
 
 		<div id="auth-login-container">
 			<form method="post" action="login.php" id="login-form">

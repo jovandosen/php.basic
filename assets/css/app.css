@@ -26,7 +26,7 @@ div#auth-navigation ul li a:hover {
 	transition: 0.2s;
 }
 
-div#auth-register-container, div#auth-login-container {
+div#auth-register-container, div#auth-login-container, div#contact-form-container {
 	width: 600px;
 	height: 600px;
 	margin-top: 50px;
@@ -45,17 +45,32 @@ div#name-container, div#email-container, div#password-container {
 	border: 1px solid black;
 }
 
+div#message-container {
+	margin-left: 25px;
+	margin-top: 30px;
+	width: 550px;
+	height: 200px;
+	padding: 10px;
+	border: 1px solid black;
+}
+
+div#message-container textarea {
+	width: 525px;
+	height: 140px;
+	padding: 5px;
+}
+
 #name, #email, #password {
 	width: 525px;
 	padding: 5px;
 }
 
-div#name-container label, div#email-container label, div#password-container label {
+div#name-container label, div#email-container label, div#password-container label, div#message-container label {
 	font-size: 18px;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+input[type=text]:focus, input[type=password]:focus, div#message-container textarea:focus {
 	outline: none;
 }
 
@@ -70,19 +85,19 @@ div#image-container img {
 	height: 600px;
 }
 
-div#register-button-container, div#login-button-container, div#forgot-password-button-container {
+div#register-button-container, div#login-button-container, div#forgot-password-button-container, div#contact-button-container {
 	margin-left: 25px;
 	margin-top: 30px;
 }
 
-div#register-button-container button, div#login-button-container button, div#forgot-password-button-container button {
+div#register-button-container button, div#login-button-container button, div#forgot-password-button-container button, div#contact-button-container button {
 	padding: 10px 20px 10px 20px;
 	background-color: white;
 	border: 1px solid black;
 	width: 550px;
 }
 
-div#register-button-container button:hover, div#login-button-container button:hover, div#forgot-password-button-container button:hover {
+div#register-button-container button:hover, div#login-button-container button:hover, div#forgot-password-button-container button:hover, div#contact-button-container button:hover {
 	background-color: lightblue;
 	color: white;
 	transition: 0.3s;
