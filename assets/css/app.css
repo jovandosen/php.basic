@@ -228,3 +228,40 @@ div#mail-sent-container {
 	color: green;
 	font-size: 20px;
 }
+
+div#cookie-consent-container {
+	position: absolute;
+	width: 100%;
+	padding: 12px;
+	top: 0;
+	background-color: #999;
+	color: white;
+}
+
+div#cookie-consent-container a {
+	color: lightblue;
+}
+
+div#cookie-consent-container button {
+	margin-left: 200px;
+	padding: 5px;
+}
+
+div#cookie-consent-content {
+	margin-top: 20px;
+	margin-left: 35px;
+}
+
+div.cookie-consent-details {
+	margin-top: 20px;
+	text-align: justify;
+	width: 1000px;
+}
+
+div.cookie-consent-details h4 {
+	margin-bottom: 10px;
+}
+
+div.cookie-consent-details p {
+	padding-left: 16px;
+}

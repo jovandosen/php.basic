@@ -99,7 +99,13 @@
 			<img src="" />
 		</div>
 
+		<div id="cookie-consent-container" style="display: none;">
+			<p>This site uses cookies to collect and store information. Cookies are necessary for our site functioning. To learn more about cookies please read our <a href="cookie-consent.php">Cookie Policy</a>.
+			<button id="cookie-consent-button">Accept</button></p>
+		</div>
+
 		<script src="/../assets/js/login.js"></script>
 		<script src="/../assets/js/slider.js"></script>
+		<script src="/../assets/js/cookie-consent.js"></script>
 	</body>
 </html>
