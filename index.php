@@ -37,7 +37,7 @@
 				<li id="user-info">
 					<a href="#"><?php echo $userName; ?></a>
 					<ul id="user-info-details" style="display: none;">
-						<li><a href="#">Profile</a></li>
+						<li><a href="/include/profile/profile.php">Profile</a></li>
 						<li><a href="#">Settings</a></li>
 						<li><a href="/include/logout.php">Logout</a></li>
 					</ul>

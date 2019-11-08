@@ -265,3 +265,66 @@ div.cookie-consent-details h4 {
 div.cookie-consent-details p {
 	padding-left: 16px;
 }
+
+div#profile-content {
+	margin-top: 30px;
+	margin-left: 30px;
+}
+
+div#avatar-wrapper {
+	float: left;
+}
+
+div#avatar-wrapper img {
+	width: 300px;
+	height: 300px;
+}
+
+div#profile-content-details {
+	float: left;
+	margin-left: 50px;
+}
+
+div#profile-email-container {
+	margin-top: 10px;
+}
+
+#profile-name, #profile-email {
+	width: 400px;
+	padding: 5px 5px 5px 0;
+	border: none;
+	border-bottom: 1px solid black;
+}
+
+div#avatar-wrapper-box {
+	width: 300px;
+	height: 300px;
+	border: 1px solid #999;
+	text-align: center;
+}
+
+#avatar {
+	margin-top: 10px;
+}
+
+div#avatar-wrapper-box p {
+	padding-top: 150px;
+	color: #999;
+}
+
+div#profile-update-button-container {
+	margin-top: 230px;
+	margin-left: 370px;
+}
+
+button#update-profile-data {
+	padding: 10px;
+	border: 1px solid black;
+	background-color: white;
+}
+
+button#update-profile-data:hover {
+	background-color: lightblue;
+	color: white;
+	transition: 0.3s;
+}
