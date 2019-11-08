@@ -18,6 +18,11 @@ function detectChange()
 	var nameCheck = $("#profile-name-hidden").val();
 	var emailCheck = $("#profile-email-hidden").val();
 
+	name = name.trim();
+	email = email.trim();
+	nameCheck = nameCheck.trim();
+	emailCheck = emailCheck.trim();
+
 	if( (name != nameCheck) || (email !=emailCheck) ){
 		$("#update-profile-data").css({"display":"block"});
 	} else {

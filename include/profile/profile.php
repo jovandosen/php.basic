@@ -28,9 +28,13 @@
 
 			$user = new User();
 
-			$id = $user->findUserByEmail($email);
+			$id = $user->findUserByEmail($_SESSION['email']);
 
 			$user->update($name, $email, $id);
+
+			$userName = $_SESSION['name'];
+			$userEmail = $_SESSION['email'];
+			$message = $_SESSION['user-updated'];
 
 		}
 
@@ -99,6 +103,10 @@
 				</div>
 			</div>
 		</form>
+
+		<div id="user-flash-message" style="display: none;">
+			<p><?php echo (isset($message) && !empty($message)) ? $message : ''; ?></p>
+		</div>
 
 		<script src="/assets/js/app.js"></script>
 		<script src="/assets/js/profile.js"></script>
