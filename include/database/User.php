@@ -152,6 +152,27 @@ class User extends Connection
 	{
 		$forgotPasswordMail = new ForgotPasswordMail($name, $email);
 	}
+
+	public function update($name, $email, $id)
+	{
+		$sql = "UPDATE users SET name=?, email=? WHERE userID=?";
+
+		$record = $this->connect->prepare($sql);
+
+		$record->bind_param("ssi", $name, $email, $id);
+
+		$record->execute();
+
+		$record->close();
+
+		$this->connect->close();
+
+		$_SESSION['name'] = $name;
+
+		$_SESSION['email'] = $email;
+
+		$_SESSION['user-updated'] = 'Data successfully updated.';
+	}
 }
 
 ?>
