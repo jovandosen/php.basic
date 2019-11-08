@@ -108,10 +108,12 @@
 			<input type="hidden" name="current-slider-image" id="current-slider-image" value="0" />
 		</div>
 
-		<div id="cookie-consent-container" style="display: none;">
-			<p>This site uses cookies to collect and store information. Cookies are necessary for our site functioning. To learn more about cookies please read our <a href="cookie-consent.php">Cookie Policy</a>.
-			<button id="cookie-consent-button">Accept</button></p>
-		</div>
+		<?php if( !isset($_SESSION['cookie-accepted']) ): ?>
+			<div id="cookie-consent-container" style="display: none;">
+				<p>This site uses cookies to collect and store information. Cookies are necessary for our site functioning. To learn more about cookies please read our <a href="cookie-consent.php">Cookie Policy</a>.
+				<button id="cookie-consent-button">Accept</button></p>
+			</div>
+		<?php endif; ?>
 
 		<script src="/../assets/js/contact.js"></script>
 		<script src="/../assets/js/slider.js"></script>
