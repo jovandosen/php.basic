@@ -5,6 +5,7 @@
 	require __DIR__ . '/../../vendor/autoload.php';
 
 	use App\validation\ValidateProfileData;
+	use App\validation\ValidateFile;
 	use App\database\User;
 
 	if( isset($_SESSION['name']) && !empty($_SESSION['name']) && isset($_SESSION['email']) && !empty($_SESSION['email']) ){
@@ -41,7 +42,10 @@
 	}
 
 	if( isset($_POST['avatar-hidden-field']) && !empty($_POST['avatar-hidden-field']) ){
-		var_dump($_FILES);
+		
+		$validateAvatar = new ValidateFile($_FILES);
+		$validateAvatar->validateAvatarData();
+
 	}
 
 ?>
