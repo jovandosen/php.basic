@@ -273,6 +273,7 @@ div#profile-content {
 	height: 175px;
 	padding: 10px;
 	border: 1px solid #999;
+	float: left;
 }
 
 div#avatar-wrapper {
@@ -306,7 +307,7 @@ button#update-profile-data {
 	background-color: white;
 }
 
-button#update-profile-data:hover {
+button#update-profile-data:hover, button#upload-avatar:hover {
 	background-color: lightblue;
 	color: white;
 	transition: 0.3s;
@@ -322,4 +323,38 @@ button#update-profile-data:hover {
 
 .add-error-style {
 	border-bottom: 1px solid red !important;
+}
+
+div#profile-avatar-container {
+	width: 325px;
+	height: 300px;
+	border: 1px solid #999;
+	float: left;
+	margin-left: 30px;
+	margin-top: 30px;
+}
+
+div#avatar-file {
+	padding-top: 140px;
+}
+
+div#profile-avatar-container p {
+	text-align: center;
+	padding-top: 150px;
+	color: #999;
+}
+
+div#profile-avatar-container img {
+	width: 325px;
+	height: 300px;
+}
+
+div#avatar-file-box-one, div#avatar-file-box-two {
+	float: left;
+}
+
+button#upload-avatar {
+	padding: 6px;
+	border: 1px solid black;
+	background-color: white;
 }

@@ -40,6 +40,10 @@
 
 	}
 
+	if( isset($_POST['avatar-hidden-field']) && !empty($_POST['avatar-hidden-field']) ){
+		var_dump($_FILES);
+	}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,6 +104,26 @@
 
 					<input type="hidden" name="profile-form-field" value="submited" id="profile-form-field" />
 
+				</div>
+			</div>
+		</form>
+
+		<form method="post" action="profile.php" enctype="multipart/form-data" id="avatar-form">
+			<div id="profile-avatar-container">
+				<?php if(!isset($avatar)): ?>
+					<p>No avatar image provided</p>
+					<?php else: ?>
+					<img src="#" />	
+				<?php endif; ?>
+				<div id="avatar-file">
+					<div id="avatar-file-box-one">
+						<input type="file" name="avatar" id="avatar" /> 
+					</div>
+					<div id="avatar-file-box-two" style="display: none;">
+						<button type="button" id="upload-avatar">UPLOAD</button>
+					</div>
+					<input type="hidden" name="avatar-image" value="" id="avatar-image" />
+					<input type="hidden" name="avatar-hidden-field" value="avatar-hidden" id="avatar-hidden-field" />
 				</div>
 			</div>
 		</form>

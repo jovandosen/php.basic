@@ -8,6 +8,16 @@ $(document).ready(function(){
 		validateProfileData();
 	});
 
+	$("#avatar").on("change", function(){
+		$("#avatar-file-box-two").css({"display":"block"});
+	});
+
+	$("#upload-avatar").on("click", function(){
+		if( document.getElementById("avatar").files.length !== 0 ){
+			$("#avatar-form").submit();
+		} 
+	});
+
 });
 
 function detectChange()
