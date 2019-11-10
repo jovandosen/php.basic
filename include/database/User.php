@@ -173,6 +173,21 @@ class User extends Connection
 
 		$_SESSION['user-updated'] = 'Data successfully updated.';
 	}
+
+	public function upload($id, $avatar)
+	{
+		$sql = "UPDATE users SET avatar=? WHERE userID=?";
+
+		$record = $this->connect->prepare($sql);
+
+		$record->bind_param("si", $avatar, $id);
+
+		$record->execute();
+
+		$record->close();
+
+		$this->connect->close();
+	}
 }
 
 ?>

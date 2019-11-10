@@ -44,7 +44,20 @@
 	if( isset($_POST['avatar-hidden-field']) && !empty($_POST['avatar-hidden-field']) ){
 		
 		$validateAvatar = new ValidateFile($_FILES);
-		$validateAvatar->validateAvatarData();
+		$uploadResult = $validateAvatar->validateAvatarData();
+		
+		if( $uploadResult[0] === true ){
+			$userRecord = new User();
+			$userId = $userRecord->findUserByEmail($_SESSION['email']);
+			$userRecord->upload($userId, $uploadResult[1]);
+			$uploadMessage = 'File uploaded successfully.';
+			var_dump($uploadMessage);
+		}
+
+		if( $uploadResult[0] === false ){
+			$uploadMessage = $uploadResult[1];
+			var_dump($uploadMessage);
+		}
 
 	}
 
