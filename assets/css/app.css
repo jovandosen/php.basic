@@ -358,3 +358,16 @@ button#upload-avatar {
 	border: 1px solid black;
 	background-color: white;
 }
+
+div#avatar-message {
+	padding-top: 375px;
+	padding-left: 532px;
+}
+
+.upload-error {
+	color: red;
+}
+
+.upload-success {
+	color: blue;
+}

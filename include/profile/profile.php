@@ -50,16 +50,19 @@
 			$userRecord = new User();
 			$userId = $userRecord->findUserByEmail($_SESSION['email']);
 			$userRecord->upload($userId, $uploadResult[1]);
-			$uploadMessage = 'File uploaded successfully.';
-			var_dump($uploadMessage);
+			$uploadSuccessMessage = 'File uploaded successfully.';
 		}
 
 		if( $uploadResult[0] === false ){
-			$uploadMessage = $uploadResult[1];
-			var_dump($uploadMessage);
+			$uploadErrorMessage = $uploadResult[1];
 		}
 
 	}
+
+	$userDetails = new User();
+	$userID = $userDetails->findUserByEmail($_SESSION['email']);
+	$userInfo = $userDetails->findUserById($userID);
+	$avatar = $userInfo->avatar;
 
 ?>
 <!DOCTYPE html>
@@ -127,10 +130,10 @@
 
 		<form method="post" action="profile.php" enctype="multipart/form-data" id="avatar-form">
 			<div id="profile-avatar-container">
-				<?php if(!isset($avatar)): ?>
+				<?php if(empty($avatar)): ?>
 					<p>No avatar image provided</p>
 					<?php else: ?>
-					<img src="#" />	
+					<img src="/assets/images/uploads/<?php echo $avatar; ?>" />	
 				<?php endif; ?>
 				<div id="avatar-file">
 					<div id="avatar-file-box-one">
@@ -143,6 +146,18 @@
 					<input type="hidden" name="avatar-hidden-field" value="avatar-hidden" id="avatar-hidden-field" />
 				</div>
 			</div>
+
+			<?php if(isset($uploadErrorMessage)): ?>
+				<div id="avatar-message" class="upload-error">
+					<p><?php echo $uploadErrorMessage; ?></p>
+				</div>
+			<?php endif; ?>
+
+			<?php if(isset($uploadSuccessMessage)): ?>
+				<div id="avatar-message" class="upload-success">
+					<p><?php echo $uploadSuccessMessage; ?></p>
+				</div>
+			<?php endif; ?>
 		</form>
 
 		<div id="user-flash-message" style="display: none;">
