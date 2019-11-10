@@ -135,14 +135,14 @@
 					<?php else: ?>
 					<img src="/assets/images/uploads/<?php echo $avatar; ?>" />	
 				<?php endif; ?>
-				<div id="avatar-file">
+				<div id="avatar-file" class="<?php echo (!empty($avatar)) ? 'remove-style' : ''; ?>">
 					<div id="avatar-file-box-one">
 						<input type="file" name="avatar" id="avatar" /> 
 					</div>
 					<div id="avatar-file-box-two" style="display: none;">
 						<button type="button" id="upload-avatar">UPLOAD</button>
 					</div>
-					<input type="hidden" name="avatar-image" value="" id="avatar-image" />
+					<input type="hidden" name="avatar-image" value="<?php echo (!empty($avatar)) ? $avatar : ''; ?>" id="avatar-image" />
 					<input type="hidden" name="avatar-hidden-field" value="avatar-hidden" id="avatar-hidden-field" />
 				</div>
 			</div>

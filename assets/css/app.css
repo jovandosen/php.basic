@@ -360,7 +360,7 @@ button#upload-avatar {
 }
 
 div#avatar-message {
-	padding-top: 375px;
+	padding-top: 360px;
 	padding-left: 532px;
 }
 
@@ -370,4 +370,8 @@ div#avatar-message {
 
 .upload-success {
 	color: blue;
+}
+
+.remove-style {
+	padding-top: 0 !important;
 }
