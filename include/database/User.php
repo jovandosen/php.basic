@@ -51,32 +51,24 @@ class User extends Connection
 
 		$details = $record->get_result();
 
-		$userID = '';
-		$userName = '';
-		$userEmail = '';
-		$userPassword = '';
+		$user = '';
 
 		if( $details->num_rows === 1 ){
 			while($row = mysqli_fetch_object($details)){
-				$userID = $row->userID;
-				$userName = $row->name;
-				$userEmail = $row->email;
-				$userPassword = $row->password;
+				$user = $row;
 			}
 		} else {
 			return array('email', 'Please enter correct email address');
 		}
 
-		if( password_verify($password, $userPassword) ){
-			$_SESSION['ID'] = $userID;
-			$_SESSION['name'] = $userName;
-			$_SESSION['email'] = $userEmail;
+		if( password_verify($password, $user->password) ){
+			$_SESSION['user'] = $user;
 
 			$sqlData = "UPDATE users SET logged=1 WHERE userID=?";
 
 			$recordData = $this->connect->prepare($sqlData);
 
-			$recordData->bind_param("i", $userID);
+			$recordData->bind_param("i", $user->userID);
 
 			$recordData->execute();
 
@@ -162,9 +154,9 @@ class User extends Connection
 
 		$this->connect->close();
 
-		$_SESSION['name'] = $name;
+		$user = $this->findUserByEmail($email);
 
-		$_SESSION['email'] = $email;
+		$_SESSION['user'] = $user;
 
 		$_SESSION['user-updated'] = 'Data successfully updated.';
 	}

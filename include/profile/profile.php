@@ -8,9 +8,10 @@
 	use App\validation\ValidateFile;
 	use App\database\User;
 
-	if( isset($_SESSION['name']) && !empty($_SESSION['name']) && isset($_SESSION['email']) && !empty($_SESSION['email']) ){
-		$userName = $_SESSION['name'];
-		$userEmail = $_SESSION['email'];
+	if( isset($_SESSION['user']) && !empty($_SESSION['user']) ){
+		$user = $_SESSION['user'];
+		$userName = $user->name;
+		$userEmail = $user->email;
 	} else {
 		header('Location: /../login.php');
 	}
@@ -29,12 +30,12 @@
 
 			$user = new User();
 
-			$id = $user->findUserByEmail($_SESSION['email']);
+			$userData = $user->findUserByEmail($user->email);
 
-			$user->update($name, $email, $id);
+			$user->update($name, $email, $userData->userID);
 
-			$userName = $_SESSION['name'];
-			$userEmail = $_SESSION['email'];
+			$userName = $user->name;
+			$userEmail = $user->email;
 			$message = $_SESSION['user-updated'];
 
 		}
@@ -48,8 +49,8 @@
 		
 		if( $uploadResult[0] === true ){
 			$userRecord = new User();
-			$userId = $userRecord->findUserByEmail($_SESSION['email']);
-			$userRecord->upload($userId, $uploadResult[1]);
+			$userInformation = $userRecord->findUserByEmail($user->email);
+			$userRecord->upload($userInformation->userID, $uploadResult[1]);
 			$uploadSuccessMessage = 'File uploaded successfully.';
 		}
 
@@ -60,8 +61,7 @@
 	}
 
 	$userDetails = new User();
-	$userID = $userDetails->findUserByEmail($_SESSION['email']);
-	$userInfo = $userDetails->findUserById($userID);
+	$userInfo = $userDetails->findUserByEmail($user->email);
 	$avatar = $userInfo->avatar;
 
 ?>
