@@ -6,12 +6,12 @@
 
 	use App\database\User;
 
-	if( isset($_SESSION['name']) && !empty($_SESSION['name']) && isset($_SESSION['email']) && !empty($_SESSION['email']) ){
+	if( isset($_SESSION['user']) && !empty($_SESSION['user']) ){
 
-		if( isset($_SESSION['ID']) && !empty($_SESSION['ID']) ){
-			$user = new User();
-			$user->logout($_SESSION['ID']);
-		}
+		$user = new User();
+		$userData = $_SESSION['user'];
+		$id = $userData->userID;
+		$user->logout($id);
 
 		session_unset();
 		session_destroy();

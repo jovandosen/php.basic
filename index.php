@@ -2,14 +2,19 @@
 
 	session_start(); 
 
-	if( isset($_SESSION['name']) && !empty($_SESSION['name']) && isset($_SESSION['email']) && !empty($_SESSION['email']) ){
-		$userName = $_SESSION['name'];
-		$userEmail = $_SESSION['email'];
+	if( isset($_SESSION['user']) && !empty($_SESSION['user']) ){
+
+		$user = $_SESSION['user'];
+
+		$userName = $user->name;
+		$userEmail = $user->email;
+
 		if( isset($_SESSION['message']) && !empty($_SESSION['message']) ){
 			$userMessage = $_SESSION['message'];
 		} else {
 			$userMessage = '';
 		}
+
 	} else {
 		header('Location: /include/login.php');
 	}

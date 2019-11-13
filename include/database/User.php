@@ -24,18 +24,13 @@ class User extends Connection
 
 		$record->execute();
 
-		$_SESSION['name'] = $name;
+		$user = $this->findUserByEmail($email);
 
-		$_SESSION['email'] = $email;
+		$_SESSION['user'] = $user;
 
 		$_SESSION['message'] = 'You have successfully registered.';
 
-		$mail = new SendWelcomeMail($name, $email);
-
-		// find user by email and return user id
-		$id = $this->findUserByEmail($email);
-
-		$_SESSION['ID'] = $id;
+		$mail = new SendWelcomeMail($user->name, $user->email);
 
 		$record->close();
 
@@ -114,15 +109,15 @@ class User extends Connection
 
 		$data = $recordDetails->get_result();
 
-		$id = '';
+		$user = '';
 
 		if( $data->num_rows === 1 ){
 			while( $row = mysqli_fetch_object($data) ){
-				$id = $row->userID;
+				$user = $row;
 			}
 		}
 
-		return $id;
+		return $user;
 	}
 
 	public function findUserById($id)
