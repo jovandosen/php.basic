@@ -9,13 +9,11 @@ $(document).ready(function(){
 	});
 
 	$("#avatar").on("change", function(){
-		$("#avatar-file-box-two").css({"display":"block"});
+		validateAvatar();
 	});
 
 	$("#upload-avatar").on("click", function(){
-		if( document.getElementById("avatar").files.length !== 0 ){
-			$("#avatar-form").submit();
-		} 
+		$("#avatar-form").submit();
 	});
 
 });
@@ -104,4 +102,53 @@ function validateEmail(email)
 {
 	var regularEx = /\S+@\S+\.\S+/;
 	return regularEx.test(email);
+}
+
+function validateAvatar()
+{
+	if( document.getElementById("avatar").files.length !== 0 ){
+
+		var fileName;
+		var fileSize;
+		var fileType;
+
+		var fileNameError = false;
+		var fileSizeError = false;
+		var fileTypeError = false;
+
+		var file = document.getElementById("avatar").files[0];
+
+		fileName = file.name;
+		fileSize = file.size;
+		fileType = file.type;
+
+		fileType = fileType.split("/");
+		fileType = fileType[1];
+
+		if( (fileType != 'jpg') && (fileType != 'jpeg') && (fileType != 'png') ){
+			fileTypeError = 'Only jpg, jpeg and png files are allowed.';
+		}
+
+		if( fileSize > 5242880 ){
+			fileSizeError = 'File is too large, max file size is 5MB.';
+		}
+
+		if( fileTypeError != '' ){
+			$("#avatar-message").css({"display":"block"});
+			$("#avatar-message p").text(fileTypeError);
+		} 
+
+		if( fileSizeError != '' ){
+			$("#avatar-message").css({"display":"block"});
+			$("#avatar-message p").text(fileSizeError);
+		} 
+
+		if( fileTypeError === false && fileSizeError === false ){
+			$("#avatar-message p").text('');
+			$("#avatar-file-box-two").css({"display":"block"});
+		} else {
+			$("#avatar-file-box-two").css({"display":"none"});
+		}
+
+	}
 }

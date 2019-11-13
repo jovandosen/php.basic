@@ -147,11 +147,10 @@
 				</div>
 			</div>
 
-			<?php if(isset($uploadErrorMessage)): ?>
-				<div id="avatar-message" class="upload-error">
-					<p><?php echo $uploadErrorMessage; ?></p>
-				</div>
-			<?php endif; ?>
+			<div id="avatar-message" class="upload-error" 
+				style="<?php echo (isset($uploadErrorMessage) && !empty($uploadErrorMessage)) ? 'display: block;' : 'display: none;'; ?>">
+				<p><?php echo (isset($uploadErrorMessage) && !empty($uploadErrorMessage)) ? $uploadErrorMessage : ''; ?></p>
+			</div>
 
 			<?php if(isset($uploadSuccessMessage)): ?>
 				<div id="avatar-message" class="upload-success">
