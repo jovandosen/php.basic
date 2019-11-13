@@ -28,14 +28,15 @@
 
 		if( $nameError == false && $emailError == false ){
 
-			$user = new User();
+			$userConn = new User();
 
-			$userData = $user->findUserByEmail($user->email);
+			$userConn->update($name, $email, $user->userID);
 
-			$user->update($name, $email, $userData->userID);
+			$userNewData = $_SESSION['user'];
 
-			$userName = $user->name;
-			$userEmail = $user->email;
+			$userName = $userNewData->name;
+			$userEmail = $userNewData->email;
+
 			$message = $_SESSION['user-updated'];
 
 		}
@@ -60,9 +61,7 @@
 
 	}
 
-	$userDetails = new User();
-	$userInfo = $userDetails->findUserByEmail($user->email);
-	$avatar = $userInfo->avatar;
+	$avatar = $user->avatar;
 
 ?>
 <!DOCTYPE html>

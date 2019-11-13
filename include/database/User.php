@@ -150,15 +150,15 @@ class User extends Connection
 
 		$record->execute();
 
-		$record->close();
-
-		$this->connect->close();
-
 		$user = $this->findUserByEmail($email);
 
 		$_SESSION['user'] = $user;
 
 		$_SESSION['user-updated'] = 'Data successfully updated.';
+
+		$record->close();
+
+		$this->connect->close();
 	}
 
 	public function upload($id, $avatar)

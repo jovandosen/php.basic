@@ -203,6 +203,7 @@ div#user-flash-message {
 	margin-top: 20px;
 	text-align: center;
 	background-color: #7FFFD4;
+	position: absolute;
 }
 
 div#container-for-password-label-register, div#container-for-password-label-login {
